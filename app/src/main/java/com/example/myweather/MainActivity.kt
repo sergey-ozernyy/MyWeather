@@ -46,7 +46,9 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                 Log.i("Latitude", location.latitude.toString())
                 Log.i("Longitude", location.longitude.toString())
                 val geocoder = Geocoder(this, Locale.getDefault())
-
+                var addresses = geocoder.getFromLocation(location.latitude, location.longitude, 10)
+                Log.i("Geocoder", geocoder.toString())
+                Log.i("addresses", addresses.toString())
             }
         } else {
             requestLocationPermission()
